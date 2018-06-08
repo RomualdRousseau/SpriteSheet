@@ -3,7 +3,7 @@
   <groupId>org.spritesheet</groupId>
   <artifactId>SpriteSheet</artifactId>
   <packaging>jar</packaging>
-  <version>1.2-SNAPSHOT</version>
+  <version>1.1-SNAPSHOT</version>
   <name>SpriteSheet</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -19,7 +19,7 @@
       <repository>
         <id>github-maven-repo</id>
         <name>Maven repository</name>
-        <url>https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/maven_repo</url>
+        <url>https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/maven-repo</url>
         <releases>
           <enabled>true</enabled>
         </releases>
