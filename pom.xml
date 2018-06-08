@@ -19,7 +19,7 @@
       <repository>
         <id>github-maven-repo</id>
         <name>Maven repository</name>
-        <url>https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/maven-repo</url>
+        <url>https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/maven_repo</url>
         <releases>
           <enabled>true</enabled>
         </releases>
