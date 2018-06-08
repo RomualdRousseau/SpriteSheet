@@ -15,6 +15,19 @@
     <url>https://github.com/RomualdRousseau/SpriteSheet</url>
     <tag>HEAD</tag>
   </scm>
+  <distributionManagement>
+      <repository>
+        <id>github-maven-repo</id>
+        <name>Maven repository</name>
+        <url>https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/maven-repo</url>
+        <releases>
+          <enabled>true</enabled>
+        </releases>
+        <snapshots>
+          <enabled>true</enabled>
+        </snapshots>
+      </repository>
+   </distributionManagement>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
