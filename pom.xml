@@ -10,6 +10,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties> 
+  <scm>
+    <connection>scm:git:git://github.com/RomualdRousseau/SpriteSheet.git</connection>
+    <developerConnection>scm:git:https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/SpriteSheet.git</developerConnection>
+    <url>https://github.com/RomualdRousseau/SpriteSheet</url>
+  </scm>
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
