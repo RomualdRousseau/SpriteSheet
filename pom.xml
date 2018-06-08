@@ -3,7 +3,7 @@
   <groupId>org.spritesheet</groupId>
   <artifactId>SpriteSheet</artifactId>
   <packaging>jar</packaging>
-  <version>1.1-SNAPSHOT</version>
+  <version>1.0</version>
   <name>SpriteSheet</name>
   <url>http://maven.apache.org</url>
   <properties>
@@ -13,7 +13,7 @@
     <connection>scm:git:git://github.com/RomualdRousseau/SpriteSheet.git</connection>
     <developerConnection>scm:git:https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/SpriteSheet.git</developerConnection>
     <url>https://github.com/RomualdRousseau/SpriteSheet</url>
-    <tag>HEAD</tag>
+    <tag>SpriteSheet-1.0</tag>
   </scm>
   <distributionManagement>
       <repository>
