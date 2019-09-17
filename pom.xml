@@ -8,7 +8,11 @@
   <url>http://maven.apache.org</url>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties> 
+    <project.build.reportingEncoding>UTF-8</project.build.reportingEncoding>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+    <processing.libraries.path>${user.home}/Projects/Processing/libraries</processing.libraries.path>
+</properties> 
   <scm>
     <connection>scm:git:git://github.com/RomualdRousseau/SpriteSheet.git</connection>
     <developerConnection>scm:git:https://romualdrousseau:Sppdmlm2@github.com/RomualdRousseau/SpriteSheet.git</developerConnection>
@@ -32,11 +36,11 @@
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.11</version>
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>processing</groupId>
+      <groupId>org.processing</groupId>
       <artifactId>core</artifactId>
       <version>3.3.6</version>
       <scope>compile</scope>
@@ -45,25 +49,43 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
+        <version>1.8</version>
         <executions>
           <execution>
+            <id>create-processing-package</id>
             <phase>package</phase>
-            <configuration>
-              <tasks>
-                <copy file="target/${project.name}-${project.version}.jar" tofile="library\${project.name}.jar" />
-                <copy todir="target/Processing/${project.name}/examples">
-                  <fileset dir="examples" includes="**" />
-                </copy>
-                <copy file="library.properties" tofile="target\Processing\${project.name}\library.properties" />
-                <copy file="target/${project.name}-${project.version}.jar" tofile="target\Processing\${project.name}\library\${project.name}.jar" />
-                <zip basedir="target\Processing\${project.name}" destfile="target\Processing\${project.name}.zip" />
-              </tasks>
-            </configuration>
             <goals>
               <goal>run</goal>
             </goals>
+            <configuration>
+              <tasks>
+                <copy file="target/${project.name}-${project.version}.jar" tofile="library\${project.name}.jar" />
+                <copy todir="target/processing-staging/${project.name}/examples">
+                  <fileset dir="examples" includes="**" />
+                </copy>
+                <copy file="library.properties" tofile="target\processing-staging\${project.name}\library.properties" />
+                <copy file="target/${project.name}-${project.version}.jar" tofile="target\processing-staging\${project.name}\library\${project.name}.jar" />
+                <zip basedir="target\processing-staging\${project.name}" destfile="target\processing-staging\${project.name}.zip" />
+              </tasks>
+            </configuration>
           </execution>
+          <execution>
+            <id>install-processing-package</id>
+            <phase>install</phase>
+            <goals>
+                <goal>run</goal>
+            </goals>
+            <configuration>
+                <target>
+                    <delete dir="${processing.libraries.path}/${project.name}" />
+                    <copy todir="${processing.libraries.path}/${project.name}">
+                        <fileset dir="target/processing-staging/${project.name}" includes="**" />
+                    </copy>
+                </target>
+            </configuration>
+        </execution>
         </executions>
       </plugin>
     </plugins>
