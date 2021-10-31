@@ -10,14 +10,14 @@ public class SpriteSheet
 		this.data = data;
 	}
 
-	public SpriteAnimation getAnimation(int startFrame, int numFrames) {
+	public SpriteAnimation getAnimation(int startFrame, int numFrames, int frameRate) {
 		PImage[] frames = new PImage[numFrames];
 		for(int j = 0; j < numFrames; j++) {
 			int x = (startFrame + j ) % (this.data.width / this.spriteWidth);
 			int y = (startFrame + j) / (this.data.width / this.spriteWidth);
 			frames[j] = this.data.get(x * this.spriteWidth, y * this.spriteHeight, this.spriteWidth, this.spriteHeight);
 		}
-		return new SpriteAnimation(frames);
+		return new SpriteAnimation(frames, frameRate);
 	}
 
 	public PImage getImage(int frame) {

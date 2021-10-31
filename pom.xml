@@ -42,8 +42,13 @@
     <dependency>
       <groupId>org.processing</groupId>
       <artifactId>core</artifactId>
-      <version>3.3.6</version>
+      <version>3.3.7</version>
       <scope>compile</scope>
+    </dependency>
+    <dependency>
+        <groupId>com.apple</groupId>
+        <artifactId>AppleJavaExtensions</artifactId>
+        <version>1.4</version>
     </dependency>
   </dependencies>
   <build>
@@ -60,7 +65,7 @@
               <goal>run</goal>
             </goals>
             <configuration>
-              <tasks>
+              <target>
                 <copy file="target/${project.name}-${project.version}.jar" tofile="library\${project.name}.jar" />
                 <copy todir="target/processing-staging/${project.name}/examples">
                   <fileset dir="examples" includes="**" />
@@ -68,7 +73,7 @@
                 <copy file="library.properties" tofile="target\processing-staging\${project.name}\library.properties" />
                 <copy file="target/${project.name}-${project.version}.jar" tofile="target\processing-staging\${project.name}\library\${project.name}.jar" />
                 <zip basedir="target\processing-staging\${project.name}" destfile="target\processing-staging\${project.name}.zip" />
-              </tasks>
+              </target>
             </configuration>
           </execution>
           <execution>
